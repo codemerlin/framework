@@ -21,13 +21,21 @@ package com.odoo.orm.types;
 import com.odoo.orm.OEDBHelper;
 
 public class OEManyToOne {
-	OEDBHelper mDb = null;
+    OEDBHelper mDb = null;
+    Boolean mOneToManyOpp = false;
+    public OEManyToOne(OEDBHelper db) {
+        mDb = db;
+    }
 
-	public OEManyToOne(OEDBHelper db) {
-		mDb = db;
-	}
+    public OEManyToOne(OEDBHelper db,Boolean isOneToManyOpp) {
+        mDb = db;
+        mOneToManyOpp = isOneToManyOpp;
+    }
+    public OEDBHelper getDBHelper() {
+        return mDb;
+    }
 
-	public OEDBHelper getDBHelper() {
-		return mDb;
-	}
+    public Boolean getIsOneToManyOpposite() {
+        return mOneToManyOpp;
+    }
 }

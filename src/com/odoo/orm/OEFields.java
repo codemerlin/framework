@@ -84,4 +84,9 @@ public class OEFields {
 		return new OEOneToMany((OEDBHelper) db, column_name);
 	}
 
+    public static OEManyToOne manyToOne(Object db,Boolean isOneToManyOpp) {
+        return new OEManyToOne((OEDBHelper) db,isOneToManyOpp);
+    }
+
+
 }

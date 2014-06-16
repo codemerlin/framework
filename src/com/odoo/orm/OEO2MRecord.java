@@ -40,7 +40,14 @@ public class OEO2MRecord {
 		return db.select(column + " = ? ", new String[] { mId + "" });
 	}
 
-	public OEDataRow browseAt(int index) {
+    public List<OEDataRow> browseEach(String column_name) {
+        OEOneToMany m2o = (OEOneToMany) mCol.getType();
+        String column = column_name;
+        OEDatabase db = (OEDatabase) m2o.getDBHelper();
+        return db.select(column + " = ? ", new String[] { mId + "" });
+    }
+
+    public OEDataRow browseAt(int index) {
 		List<OEDataRow> list = browseEach();
 		if (list.size() == 0) {
 			return null;

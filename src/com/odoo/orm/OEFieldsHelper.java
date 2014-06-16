@@ -81,7 +81,8 @@ public class OEFieldsHelper {
 											.getType();
 									OEDatabase db = (OEDatabase) m2o
 											.getDBHelper();
-									mRelRecord.add(db, value);
+                                    if(!((OEManyToOne)col.getType()).getIsOneToManyOpposite())
+                                        mRelRecord.add(db, value);
 								} else {
 									value = false;
 								}
